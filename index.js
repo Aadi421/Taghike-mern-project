@@ -37,11 +37,15 @@ const upload = multer({ storage: storage });
 app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
 });
-
+if(process.env.NODE_ENV==='production'){
+  app.use(express.static('client/build'))
+}
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
-app.use("/api/categories", categoryRoute);
+
+
+
 
 app.listen(port, () => {
   console.log(`Server is running on port :: ${port}`);
