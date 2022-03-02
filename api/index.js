@@ -7,14 +7,14 @@ const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
-const categoryRoute = require("./routes/categories");
+
 const multer = require("multer");
 const path = require("path");
 
 dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
-
+//'mongodb://localhost:27017/blogapp'
 mongoose.connect('mongodb+srv://Aadi421:Aadi@421@cluster0.jppqa.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
     useNewUrlParser: true,
     useUnifiedTopology: true,

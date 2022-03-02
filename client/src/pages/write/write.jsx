@@ -27,11 +27,11 @@ const history=useHistory();
       data.append("file", file);
       newPost.photo = filename;
       try {
-        await axios.post("/upload", data);
+        await axios.post("/api/upload", data);
       } catch (err) {console.log(err);}
     }
     try {
-      const res = await axios.post("/posts", newPost);
+      const res = await axios.post("/api/posts", newPost);
       history.push("/");
     } catch (err) {console.log(err)}
   }
